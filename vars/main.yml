@@ -1,0 +1,7 @@
+# roles/tomcat/vars/main.yml
+---
+
+tomcat_packages:
+  - tomcat
+
+tomcat_service: tomcatd

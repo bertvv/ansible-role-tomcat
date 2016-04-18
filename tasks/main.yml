@@ -1,0 +1,16 @@
+# roles/tomcat/tasks/main.yml
+---
+
+- name: Install packages
+  yum:
+    pkg: "{{ item }}"
+    state: installed
+  with_items: tomcat_packages
+  tags: tomcat
+
+- name: Ensure service is started
+  service:
+    name: "{{ tomcat_service }}"
+    state: started
+    enabled: true
+  tags: tomcat
