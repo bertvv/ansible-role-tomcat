@@ -1,4 +1,4 @@
 # roles/tomcat/defaults/main.yml
 ---
 
-
+tomcat_port: 8080

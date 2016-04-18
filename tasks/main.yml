@@ -1,12 +1,29 @@
 # roles/tomcat/tasks/main.yml
 ---
 
+- name: Ensure EPEL repo is available
+  yum:
+    pkg: epel-release
+    state: installed
+  tags: tomcat
+
 - name: Install packages
   yum:
     pkg: "{{ item }}"
     state: installed
   with_items: tomcat_packages
   tags: tomcat
+
+- name: Install configuration file `server.xml`
+  template:
+    src: etc_tomcat_server.xml.j2
+    dest: /etc/tomcat/server.xml
+    owner: tomcat
+    group: tomcat
+    mode: '0664'
+  notify: restart tomcat
+  tags: tomcat
+
 
 - name: Ensure service is started
   service:
