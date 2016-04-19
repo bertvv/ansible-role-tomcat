@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: Bert Van Vreckem
-  description: PURPOSE
+  description: An Ansible role for setting up Tomcat on RHEL/CentOS 7.
   company:
   license: BSD
   min_ansible_version: 1.7
@@ -12,4 +12,3 @@ galaxy_info:
   categories:
     - system
 dependencies: []
-version: 1.0.0

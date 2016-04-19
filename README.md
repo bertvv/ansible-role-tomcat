@@ -1,8 +1,11 @@
 # Ansible role `tomcat`
 
-An Ansible role for PURPOSE. Specifically, the responsibilities of this role are to:
+An Ansible role for setting up Tomcat on RHEL/CentOS 7. Specifically, the responsibilities of this role are to:
 
--
+- Install packages (from the EPEL repository)
+- Manage configuration
+
+The firewall configuration is not a concern of this role. Use another role for that (e.g. [bertvv.el7](https://galaxy.ansible.com/bertvv/el7))
 
 ## Requirements
 
@@ -11,9 +14,9 @@ No specific requirements
 ## Role Variables
 
 
-| Variable   | Required | Default | Comments (type)  |
-| :---       | :---     | :---    | :---             |
-| `role_var` | no       | -       | (scalar) PURPOSE |
+| Variable      | Required | Default | Comments                               |
+| :---          | :---     | :---    | :---                                   |
+| `tomcat_port` | no       | 8080    | The port number for the Tomcat service |
 
 ## Dependencies
 
