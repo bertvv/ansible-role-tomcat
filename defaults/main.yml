@@ -1,4 +1,8 @@
 # roles/tomcat/defaults/main.yml
 ---
 
+# Port for the Tomcat service
 tomcat_port: 8080
+
+# List of libraries (jar files) to install in Tomcat lib/ directory
+tomcat_libraries: []

@@ -14,6 +14,13 @@
   with_items: tomcat_packages
   tags: tomcat
 
+- name: Install libraries
+  copy:
+    src: "{{ item }}"
+    dest: "{{ tomcat_lib_dir }}"
+  with_items: tomcat_libraries
+  tags: tomcat
+
 - name: Install configuration file `server.xml`
   template:
     src: etc_tomcat_server.xml.j2

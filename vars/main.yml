@@ -5,3 +5,6 @@ tomcat_packages:
   - tomcat
 
 tomcat_service: tomcat
+
+tomcat_home: /usr/share/tomcat
+tomcat_lib_dir: /usr/share/java/tomcat
