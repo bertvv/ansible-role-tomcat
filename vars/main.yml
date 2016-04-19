@@ -3,6 +3,8 @@
 
 tomcat_packages:
   - tomcat
+tomcat_admin_packages:
+  - tomcat-admin-webapps
 
 tomcat_service: tomcat
 
