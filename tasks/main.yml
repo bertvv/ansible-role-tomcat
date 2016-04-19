@@ -31,10 +31,16 @@
   notify: restart tomcat
   tags: tomcat
 
-
 - name: Ensure service is started
   service:
     name: "{{ tomcat_service }}"
     state: started
     enabled: true
+  tags: tomcat
+
+- name: Deploy applications
+  copy:
+    src: "{{ item }}"
+    dest: "{{ tomcat_app_dir }}"
+  with_items: tomcat_deploy_wars
   tags: tomcat

@@ -6,3 +6,6 @@ tomcat_port: 8080
 
 # List of libraries (jar files) to install in Tomcat lib/ directory
 tomcat_libraries: []
+
+# List of application WARs to deploy on the Tomcat server
+tomcat_deploy_wars: []
