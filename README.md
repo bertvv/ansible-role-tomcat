@@ -14,9 +14,42 @@ No specific requirements
 ## Role Variables
 
 
-| Variable      | Required | Default | Comments                               |
-| :---          | :---     | :---    | :---                                   |
-| `tomcat_port` | no       | 8080    | The port number for the Tomcat service |
+| Variable                      | Required | Default     | Comments                                                           |
+| :---                          | :---     | :---        | :---                                                               |
+| `tomcat_port`                 | no       | 8080        | The port number for the Tomcat service                             |
+| `tomcat_libraries`            | no       | []          | List of libraries (.jar files) to install in Tomcat lib/ directory |
+| `tomcat_deploy_wars`          | no       | []          | List of application archives (.war files) to be deployed           |
+| `tomcat_install_admin_webapp` | no       | false       | When true, the admin web application is installed                  |
+| `tomcat_roles`                | no       | (see below) | List of user roles to be defined in tomcat-users.xml (see below)   |
+| `tomcat_users`                | no       | []          | List of users to be defined in tomcat-users.xml (see below)        |
+
+### Users and roles
+
+When installing the Manager web application, you also need to define at least one user and some roles. See the [Tomcat Documentation](https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html#Configuring_Manager_Application_Access) for details. The following roles are available by default:
+
+```Yaml
+tomcat_roles:
+  - manager-gui
+  - manager-status
+  - manager-script
+  - manager-jmx
+```
+
+You can override these by redefining `tomcat_roles` in your `host_vars` or `group_vars`.
+
+To enable access to the Manager web application, you must create a username/password and associate one of the `manager-xxx` roles with it. The `tomcat_users` variable takes care of this, e.g.:
+
+```Yaml
+tomcat_users:
+  - name: admin
+    password: 'Boavtug8'
+    roles:
+      - manager-gui
+  - name: john
+    password: 'yirphUr7'
+    roles:
+      - manager-jmx
+```
 
 ## Dependencies
 
@@ -34,8 +67,9 @@ Tests for this role are provided in the form of a Vagrant environment that is ke
 2. Create a Git worktree for the test code: `git worktree add tests tests` (remark: this requires at least Git v2.5.0). This will create a directory `tests/`.
 3. `cd tests/`
 4. `vagrant up` will then create a VM and apply a test playbook (`test.yml`).
+5. Point your browser to <http://192.168.56.7:8084/sample/> to view the sample application that was deployed on the server by the test playbook.
 
-You may want to change the base box into one that you like. The current one, [bertvv/centos71](https://atlas.hashicorp.com/bertvv/boxes/centos71) was generated using a Packer template from the [Boxcutter project](https://github.com/boxcutter/centos) with a few modifications.
+You may want to change the base box into one that you like. The current one, [bertvv/centos72](https://atlas.hashicorp.com/bertvv/boxes/centos72) was generated using a Packer template from the [Boxcutter project](https://github.com/boxcutter/centos) with a few modifications.
 
 ## Contributing
 
