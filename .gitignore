@@ -14,3 +14,6 @@
 
 # Ignore roles downloaded from Ansible Galaxy
 roles/*.*
+
+# Demo application that is deployed on the server
+sample.war
