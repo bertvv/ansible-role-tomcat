@@ -6,9 +6,14 @@ galaxy_info:
   license: BSD
   min_ansible_version: 1.7
   platforms:
-  - name: EL
-    versions:
-      - 7
-  categories:
-    - system
+    - name: EL
+      versions:
+        - 7
+    - name: Fedora
+      versions:
+        - 23
+  galaxy_tags:
+    - networking
+    - java
+    - web
 dependencies: []
