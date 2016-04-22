@@ -1,8 +1,8 @@
 # Ansible role `tomcat`
 
-An Ansible role for setting up Tomcat on RHEL/CentOS 7. Specifically, the responsibilities of this role are to:
+An Ansible role for setting up Tomcat on RHEL/CentOS 7 or Fedora. Specifically, the responsibilities of this role are to:
 
-- Install packages (from the EPEL repository)
+- Install packages from the EPEL repository (EL7: Tomcat 7, Fedora 23: Tomcat 8)
 - Manage configuration
 
 The firewall configuration is not a concern of this role. Use another role for that (e.g. [bertvv.el7](https://galaxy.ansible.com/bertvv/el7))
@@ -16,7 +16,7 @@ No specific requirements
 
 | Variable                      | Required | Default     | Comments                                                           |
 | :---                          | :---     | :---        | :---                                                               |
-| `tomcat_port`                 | no       | 8080        | The port number for the Tomcat service                             |
+| `tomcat_port`                 | no       | 8080        | The port number for the Tomcat service (> 1024)                    |
 | `tomcat_libraries`            | no       | []          | List of libraries (.jar files) to install in Tomcat lib/ directory |
 | `tomcat_deploy_wars`          | no       | []          | List of application archives (.war files) to be deployed           |
 | `tomcat_install_admin_webapp` | no       | false       | When true, the admin web application is installed                  |
