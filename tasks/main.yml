@@ -1,24 +1,13 @@
 # roles/tomcat/tasks/main.yml
 ---
 
-- name: Ensure EPEL repo is available
-  yum:
-    pkg: epel-release
-    state: installed
-  tags: tomcat
-
-- name: Install packages
-  yum:
-    pkg: "{{ item }}"
-    state: installed
-  with_items: tomcat_packages
-  tags: tomcat
+- include: install.yml
 
 - name: Install libraries
   copy:
     src: "{{ item }}"
     dest: "{{ tomcat_lib_dir }}"
-  with_items: tomcat_libraries
+  with_items: "{{ tomcat_libraries }}"
   tags: tomcat
 
 - name: Install configuration file `server.xml`
@@ -42,7 +31,7 @@
   copy:
     src: "{{ item }}"
     dest: "{{ tomcat_app_dir }}"
-  with_items: tomcat_deploy_wars
+  with_items: "{{ tomcat_deploy_wars }}"
   tags: tomcat
 
 - include: manager.yml
