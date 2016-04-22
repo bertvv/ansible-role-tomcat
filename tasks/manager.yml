@@ -1,11 +1,21 @@
 # roles/tomcat/tasks/manager.yml
 ---
 
-- name: Install the administration web interface
+- name: Install the administration web interface (EL)
   yum:
     pkg: "{{ item }}"
     state: installed
-  with_items: tomcat_admin_packages
+  with_items: "{{ tomcat_admin_packages }}"
+  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
+  notify: restart tomcat
+  tags: tomcat
+
+- name: Install the administration web interface (Fedora)
+  dnf:
+    pkg: "{{ item }}"
+    state: installed
+  with_items: "{{ tomcat_admin_packages }}"
+  when: ansible_distribution == "Fedora"
   notify: restart tomcat
   tags: tomcat
 
