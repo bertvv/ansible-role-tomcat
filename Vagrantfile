@@ -1,7 +1,5 @@
 # vi: ft=ruby
 
-require 'rbconfig'
-
 VAGRANTFILE_API_VERSION = '2'
 ROLE_NAME = 'tomcat'
 
@@ -11,8 +9,6 @@ hosts = [
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = 'testf23' # 'bertvv/fedora23'
-
   hosts.each do |host|
     host_name = host[:distro] + '-' + ROLE_NAME
 
