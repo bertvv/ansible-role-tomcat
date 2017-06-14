@@ -31,6 +31,9 @@
   copy:
     src: "{{ item }}"
     dest: "{{ tomcat_app_dir }}"
+    owner: tomcat
+    group: tomcat
+    mode: '0640'
   with_items: "{{ tomcat_deploy_wars }}"
   tags: tomcat
 
