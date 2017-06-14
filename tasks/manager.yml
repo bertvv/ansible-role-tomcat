@@ -24,8 +24,8 @@
     src: etc_tomcat_tomcat-users.xml.j2
     dest: /etc/tomcat/tomcat-users.xml
     mode: '0660'
-    owner: tomcat
-    group: tomcat
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
   notify: restart tomcat
   tags: tomcat
 

@@ -14,8 +14,8 @@
   template:
     src: etc_tomcat_server.xml.j2
     dest: /etc/tomcat/server.xml
-    owner: tomcat
-    group: tomcat
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
     mode: '0664'
   notify: restart tomcat
   tags: tomcat
@@ -31,8 +31,8 @@
   copy:
     src: "{{ item }}"
     dest: "{{ tomcat_app_dir }}"
-    owner: tomcat
-    group: tomcat
+    owner: "{{ tomcat_user }}"
+    group: "{{ tomcat_user }}"
     mode: '0640'
   with_items: "{{ tomcat_deploy_wars }}"
   tags: tomcat

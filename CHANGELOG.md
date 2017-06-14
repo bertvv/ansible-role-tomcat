@@ -2,6 +2,13 @@
 
 This file contains al notable changes to the bertvv.tomcat Ansible role. This file adheres to the guidelines of [http://keepachangelog.com/](http://keepachangelog.com/). Versioning follows [Semantic Versioning](http://semver.org/).
 
+## 1.1.1 - 2016-06-14
+
+### Changed
+
+- (GH-2) Set the owner/group of .war files
+- Changed the tomcat user into a variable instead of a hard coded value.
+
 ## 1.1.0 - 2016-04-22
 
 ### Added
