@@ -2,6 +2,13 @@
 
 This file contains al notable changes to the bertvv.tomcat Ansible role. This file adheres to the guidelines of [http://keepachangelog.com/](http://keepachangelog.com/). Versioning follows [Semantic Versioning](http://semver.org/).
 
+## 1.1.2 - 2016-06-16
+
+## Changed
+
+- Use the generic package module
+- Don't initialize Jasper Reports, this doesn't work on Tomcat 8 (Fedora)
+
 ## 1.1.1 - 2016-06-14
 
 ### Changed
