@@ -1,19 +1,10 @@
 # roles/tomcat/tasks/install_redhat.yml
 ---
 
-- name: Install packages (Fedora)
-  dnf:
-    pkg: "{{ item }}"
+- name: Install packages
+  package:
+    name: "{{ item }}"
     state: installed
   with_items: "{{ tomcat_packages }}"
-  when: ansible_distribution == "Fedora"
-  tags: tomcat
-
-- name: Install packages (RedHat)
-  yum:
-    pkg: "{{ item }}"
-    state: installed
-  with_items: "{{ tomcat_packages }}"
-  when: ansible_distribution == "CentOS" or ansible_distribution == "RedHat"
   tags: tomcat
 
