@@ -5,7 +5,7 @@ An Ansible role for setting up Tomcat on RHEL/CentOS 7 or Fedora. Specifically, 
 - Install packages from the EPEL repository (EL7: Tomcat 7, Fedora 23: Tomcat 8)
 - Manage configuration
 
-The firewall configuration is not a concern of this role. Use another role for that (e.g. [bertvv.el7](https://galaxy.ansible.com/bertvv/el7))
+The firewall configuration is not a concern of this role. Use another role for that (e.g. [bertvv.rh-base](https://galaxy.ansible.com/bertvv/rh-base))
 
 ## Requirements
 
@@ -81,6 +81,6 @@ BSD
 
 ## Contributors
 
-- [Bert Van Vreckem](https://github.com/bertvv)
+- [Bert Van Vreckem](https://github.com/bertvv) (Maintainer)
 - [duality72](https://github.com/duality72)
 
