@@ -4,14 +4,14 @@ galaxy_info:
   description: An Ansible role for setting up Tomcat on RHEL/CentOS 7.
   company:
   license: BSD
-  min_ansible_version: 1.7
+  min_ansible_version: 2.0
   platforms:
     - name: EL
       versions:
         - 7
     - name: Fedora
       versions:
-        - 23
+        - 25
   galaxy_tags:
     - networking
     - java
